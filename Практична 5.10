@@ -1,0 +1,100 @@
+1)public class NumberPrinting {
+    public static void main(String[] args) {
+        // Використання циклу for
+        System.out.println("Використання циклу for:");
+        for (int i = 500; i <= 650; i += 10) {
+            System.out.println(i);
+        }
+
+        // Використання циклу while
+        System.out.println("Використання циклу while:");
+        int number = 500;
+        while (number <= 650) {
+            System.out.println(number);
+            number += 10;
+        }
+
+        // Використання циклу do-while
+        System.out.println("Використання циклу do-while:");
+        int num = 500;
+        do {
+            System.out.println(num);
+            num += 10;
+        } while (num <= 650);
+    }
+}
+2)public class SequencePrinting {
+    public static void main(String[] args) {
+        int a = 2;
+        int value = 2 * a - 1;
+
+        while (value < 5000) {
+            System.out.println(value);
+            a++;
+            value = 2 * a - 1;
+        }
+    }
+}
+
+3)public class DivisorPrinting {
+    public static void main(String[] args) {
+        int number = 10;
+
+        System.out.println("Додатні дільники числа " + number + ":");
+
+        for (int divisor = 1; divisor <= number; divisor++) {
+            if (number % divisor == 0) {
+                System.out.println(divisor);
+            }
+        }
+    }
+}
+
+4)public class FactorialCalculation {
+    public static void main(String[] args) {
+        // Використання циклу for
+        int number = 10;
+        int factorial = 1;
+
+        for (int i = 1; i <= number; i++) {
+            factorial *= i;
+        }
+
+        System.out.println("Факторіал числа " + number + " (використання циклу for): " + factorial);
+
+        // Використання циклу while
+        int n = 10;
+        int fact = 1;
+        int j = 1;
+
+        while (j <= n) {
+            fact *= j;
+            j++;
+        }
+
+        System.out.println("Факторіал числа " + n + " (використання циклу while): " + fact);
+    }
+}
+
+5)public class SymmetricCombinations {
+    public static void main(String[] args) {
+        int count = 0;
+
+        for (int hour = 0; hour < 24; hour++) {
+            for (int minute = 0; minute < 60; minute++) {
+                String time = String.format("%02d:%02d", hour, minute);
+                if (isSymmetric(time)) {
+                    count++;
+                    System.out.println(time);
+                }
+            }
+        }
+
+        System.out.println("Кількість співпадінь симетричних комбінацій: " + count);
+    }
+
+    private static boolean isSymmetric(String time) {
+        char[] digits = time.toCharArray();
+        return digits[0] == digits[4] && digits[1] == digits[3];
+    }
+}
