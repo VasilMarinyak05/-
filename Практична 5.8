@@ -1,0 +1,130 @@
+1)public class CheckNumberRange {
+    public static void main(String[] args) {
+        int number = 60;
+        int lowerBound = 50;
+        int upperBound = 100;
+        int rangeLowerBound = 25;
+
+        if (number > lowerBound && number < upperBound) {
+            System.out.println("Число " + number + " міститься в проміжку (" + rangeLowerBound + "; " + upperBound + ").");
+        } else {
+            System.out.println("Число " + number + " не міститься в проміжку (" + rangeLowerBound + "; " + upperBound + ").");
+        }
+    }
+}
+
+2)public class FindLargestDigit {
+    public static void main(String[] args) {
+        int number = 874;
+
+        int largestDigit = findLargestDigit(number);
+
+        System.out.println("Найбільша цифра в числі " + number + " - це " + largestDigit + ".");
+    }
+
+    public static int findLargestDigit(int number) {
+        int largestDigit = 0;
+
+        while (number > 0) {
+            int digit = number % 10;
+            if (digit > largestDigit) {
+                largestDigit = digit;
+            }
+            number /= 10;
+        }
+
+        return largestDigit;
+    }
+}
+
+3)import java.util.Scanner;
+
+public class ElevatorControl {
+    public static void main(String[] args) {
+        int currentFloor = 1;
+
+        System.out.println("Ліфт знаходиться на " + currentFloor + " поверсі.");
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Введіть номер поверху (1-9): ");
+        int destinationFloor = scanner.nextInt();
+
+        if (destinationFloor == 2) {
+            if (currentFloor < destinationFloor) {
+                destinationFloor = 3;
+            } else if (currentFloor > destinationFloor) {
+                destinationFloor = 1;
+            }
+        }
+
+        if (destinationFloor >= 1 && destinationFloor <= 9 && destinationFloor != 2) {
+            if (destinationFloor > currentFloor) {
+                for (int floor = currentFloor + 1; floor <= destinationFloor; floor++) {
+                    System.out.println("Ви піднялись на " + floor + " поверх.");
+                }
+            } else if (destinationFloor < currentFloor) {
+                for (int floor = currentFloor - 1; floor >= destinationFloor; floor--) {
+                    System.out.println("Ви спустились на " + floor + " поверх.");
+                }
+            } else {
+                System.out.println("Ви зараз знаходитесь на цьому поверсі.");
+            }
+        } else {
+            System.out.println("Введено некоректний номер поверху.");
+        }
+    }
+}
+
+4)import java.util.Scanner;
+
+public class ConditionalMenu {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Виберіть опцію: ");
+        System.out.println("1. Погодитись");
+        System.out.println("2. Відмовитись");
+
+        int option = scanner.nextInt();
+
+        switch (option) {
+            case 1:
+                System.out.print("Введіть ваш вибір: ");
+                String agreeOption = scanner.next();
+
+                switch (agreeOption.toLowerCase()) {
+                    case "так":
+                    case "ок":
+                    case "yes":
+                    case "y":
+                    case "+":
+                        System.out.println("Я погоджуюсь!");
+                        break;
+                    default:
+                        System.out.println("Нерозпізнаний варіант.");
+                        break;
+                }
+                break;
+            case 2:
+                System.out.print("Введіть ваш вибір: ");
+                String refuseOption = scanner.next();
+
+                switch (refuseOption.toLowerCase()) {
+                    case "ні":
+                    case "no":
+                    case "n":
+                    case "-":
+                        System.out.println("Я відмовляюсь!");
+                        break;
+                    default:
+                        System.out.println("Нерозпізнаний варіант.");
+                        break;
+                }
+                break;
+            default:
+                System.out.println("Нерозпізнаний варіант.");
+                break;
+        }
+    }
+}
