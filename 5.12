@@ -1,0 +1,185 @@
+1)public class OddNumbersArray {
+    public static void main(String[] args) {
+        // Визначення розміру масиву
+        int size = 50;
+
+        // Створення масиву непарних чисел
+        int[] oddNumbers = new int[size];
+        int number = 1;
+        for (int i = 0; i < size; i++) {
+            oddNumbers[i] = number;
+            number += 2;
+        }
+
+        // Виведення елементів масиву у стовпчик
+        for (int i = 0; i < size; i++) {
+            System.out.println(oddNumbers[i]);
+        }
+    }
+}
+
+2)import java.util.Arrays;
+import java.util.Random;
+
+public class ArrayManipulation {
+    public static void main(String[] args) {
+        // Створення масиву з 20 випадкових цілих чисел
+        int[] numbers = new int[20];
+        Random random = new Random();
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = random.nextInt(10);
+        }
+
+        // Ви
+3)import java.util.Random;
+
+public class ArrayComparison {
+    public static void main(String[] args) {
+        // Створення та заповнення масивів
+        int[] array1 = generateRandomArray(5);
+        int[] array2 = generateRandomArray(5);
+        int[] array3 = generateRandomArray(5);
+
+        // Виведення масивів у консоль
+        printArray(array1);
+        printArray(array2);
+        printArray(array3);
+
+        // Обчислення середнього арифметичного
+        double average1 = calculateAverage(array1);
+        double average2 = calculateAverage(array2);
+        double average3 = calculateAverage(array3);
+
+4)import java.util.Random;
+
+public class ArraySum {
+    public static void main(String[] args) {
+        // Створення та заповнення перших двох масивів
+        int[] array1 = generateRandomArray(10);
+        int[] array2 = generateRandomArray(10);
+
+        // Створення третього масиву
+        int[] sumArray = new int[10];
+
+        // Обчислення сум елементів та заповнення третього масиву
+        for (int i = 0; i < 10; i++) {
+            sumArray[i] = array1[i] + array2[i];
+        }
+
+        // Виведення масивів у консоль
+        printArray(array1);
+        printArray(array2);
+        printArray(sumArray);
+    }
+
+    // Метод для генерації масиву з випадковими цілими числами
+    public static int[] generateRandomArray(int size) {
+        int[] array = new int[size];
+        Random random = new Random();
+        for (int i = 0; i < size; i++) {
+            array[i] = random.nextInt(11); // Випадкове число від 0 до 10
+        }
+        return array;
+    }
+
+    // Метод для виведення масиву у консоль
+    public static void printArray(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
+        System.out.println();
+    }
+}
+
+
+5)import java.util.Random;
+
+public class ArrayCount {
+    public static void main(String[] args) {
+        // Створення та заповнення масиву
+        int[] array = generateRandomArray(15);
+
+        // Виведення масиву на екран
+        System.out.println("Масив:");
+        printArray(array);
+
+        // Підрахунок кількості парних елементів
+        int count = countEvenElements(array);
+
+        // Виведення результату
+        System.out.println("Кількість парних елементів: " + count);
+    }
+
+    // Метод для генерації масиву з випадковими елементами
+    public static int[] generateRandomArray(int size) {
+        int[] array = new int[size];
+        Random random = new Random();
+        for (int i = 0; i < size; i++) {
+            array[i] = random.nextInt(11); // Випадкове число від 0 до 10
+        }
+        return array;
+    }
+
+    // Метод для виведення масиву на екран
+    public static void printArray(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
+        System.out.println();
+    }
+
+    // Метод для підрахунку кількості парних елементів
+    public static int countEvenElements(int[] array) {
+        int count = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] % 2 == 0) {
+                count++;
+            }
+        }
+        return count;
+    }
+}
+
+6)import java.util.Random;
+
+public class TwoDimensionalArray {
+    public static void main(String[] args) {
+        // Визначення розмірів кожної групи стрічок та стовбців
+        int[] rowCounts = {5, 5, 5, 5, 8, 8, 8, 8, 3, 3, 3, 3, 9, 9, 9};
+        int[] columnCounts = {5, 5, 5, 5, 8, 8, 8, 8, 3, 3, 3, 3, 9, 9, 9};
+
+        // Створення та заповнення двовимірного масиву
+        int[][] array = generateRandomArray(rowCounts, columnCounts);
+
+        // Виведення масиву на екран
+        printArray(array);
+    }
+
+    // Метод для генерації двовимірного масиву з випадковими значеннями
+    public static int[][] generateRandomArray(int[] rowCounts, int[] columnCounts) {
+        int[][] array = new int[rowCounts.length][];
+        Random random = new Random();
+        for (int i = 0; i < rowCounts.length; i++) {
+            int rowCount = rowCounts[i];
+            int columnCount = columnCounts[i];
+            array[i] = new int[rowCount];
+            for (int j = 0; j < rowCount; j++) {
+                for (int k = 0; k < columnCount; k++) {
+                    array[i][j] = random.nextInt(16); // Випадкове число від 0 до 15
+                }
+            }
+        }
+        return array;
+    }
+
+    // Метод для виведення двовимірного масиву на екран
+    public static void printArray(int[][] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                System.out.print(array[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
