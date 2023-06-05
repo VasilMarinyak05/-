@@ -1,0 +1,45 @@
+package myPackage;
+
+public class One {
+    private int number;
+    private double value;
+    private String name;
+
+    public One(int number, double value, String name) {
+        this.number = number;
+        this.value = value;
+        this.name = name;
+    }
+}
+
+public class Two {
+    private int age;
+    private boolean isActive;
+    private String description;
+
+    public Two(int age, boolean isActive, String description) {
+        this.age = age;
+        this.isActive = isActive;
+        this.description = description;
+    }
+}
+
+public class Three {
+    private String color;
+    private char symbol;
+    private float price;
+
+    public Three(String color, char symbol, float price) {
+        this.color = color;
+        this.symbol = symbol;
+        this.price = price;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        One one = new One(10, 3.14, "First");
+        Two two = new Two(25, true, "Second");
+        Three three = new Three("Red", 'A', 9.99f);
+    }
+}
